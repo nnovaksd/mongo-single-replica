@@ -1,0 +1,16 @@
+services:
+  mongo:
+    image: mongo-single-replica
+    container_name: mongo-single-replica
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: secret123
+      # MONGO_INITDB_DATABASE: admin
+    volumes:
+      # - ./data/users/001_users.js:/docker-entrypoint-initdb.d/001_users.js:ro
+      - ./etc/mongo:/etc/mongo
+      - ./data/db:/data/db
+      - ./data/users:/data/users
+    ports:
+      - "27017:27017"
+    # command: mongod --config /etc/mongod.conf
