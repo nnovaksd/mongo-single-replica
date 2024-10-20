@@ -1,0 +1,1 @@
+# mongo-single-replica
